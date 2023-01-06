@@ -1,0 +1,41 @@
+img {
+    height: 5rem;
+}
+
+.container{
+    width: 85%;
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+.navbar {    
+    background: linear-gradient(180deg, rgba(2,0,36,1) 10%, rgba(0,18,147,1) 44%, rgba(17,104,215,1) 61%, rgba(10,31,144,1) 90%);
+}
+
+a {
+    color: white;
+    font-size: larger;
+    font-style: unset;
+}
+
+a:hover, a:active {
+    text-decoration: underline;
+    font-size: larger;
+    font-style: unset;   
+}
+
+.container {
+    display: block;
+}
+
+.nav-link {
+    display: flex;    
+}
+
+@media screen and (max-width: 700px) {
+    .nav-link {
+      display: none;
+    }
+  }
+

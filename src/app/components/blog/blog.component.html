@@ -1,0 +1,62 @@
+
+
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="assets/img/200x100.jpeg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Postagem em Destaque </h5>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class="row row-cols-2 row-cols-md-3 d-flex justify-content-between" >
+        <div class="col" *ngFor="let item of list | slice:0:6">
+            <div class="card h-100">
+                <img src="assets/img/banner2.png" class="card-img-top" alt="Voce mais Tech">
+                <div class="card-body">
+                    <h5 class="card-title"> {{item.title}}</h5>
+                    <p class="card-text"> {{ item.text }} </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"> {{ item.author }} </small>
+                    <small class="text-muted"> {{ item.date }} </small>
+                </div>
+            </div>
+        </div>
+      <!--  <div class="col">
+            <div class="card h-100">
+                <img src="assets/img/banner2.png" class="card-img-top" alt="Voce mais Tech">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Autor: Luan Santos</small>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="assets/img/banner2.png" class="card-img-top" alt="Voce mais Tech">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This card has even longer content than the first to show that equal height
+                        action.</p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Autor: Luan Santos</small>
+                </div>
+            </div>
+        </div>  -->
+    </div>
