@@ -1,18 +1,35 @@
-.container {
-    height: 100%;
-    margin-top: 10rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .form-group {
     width: 30rem;
-    margin: auto;    
+    margin: 1.5rem auto auto auto;    
     border-radius: 1rem;
 }
 
 h1 {
     width: 100%;
     text-align: center;
+}
+
+.card{
+    margin: 10rem auto auto auto;
+    width: 40rem;
+    background-color: rgba(26, 87, 243, 0.1);    
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    align-items: center;
+    justify-content: center;
+    display: flex;    
+}
+
+.cadastre-se {
+    align-items: center;
+    justify-content: center;
+    display: flex;  
+    font-size: larger;
+    font-weight: 700;
 }

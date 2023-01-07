@@ -38,10 +38,10 @@ h1 {
     display: flex;    
 }
 
-.cadastre-se {
-    align-items: center;
-    justify-content: center;
-    display: flex;  
-    font-size: larger;
-    font-weight: 700;
+.checkbox {
+    border-width: thin;
+    border-style: solid;
+    padding: .3rem;
+    border-color: rgba(125, 125, 141, 0.30);
+    border-radius: .3rem;
 }

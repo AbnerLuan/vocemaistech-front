@@ -1,21 +1,32 @@
-import { Credenciais } from 'src/app/models/credenciais';
-import { UsuarioService } from './../../services/usuario.service';
-import { Usuario } from './../../models/usuario';
+import { PostBlog } from './../../../models/postblog';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Credenciais } from 'src/app/models/credenciais';
+import { Usuario } from 'src/app/models/usuario';
 import { AuthService } from 'src/app/services/auth.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
-  selector: 'app-minhaconta',
-  templateUrl: './minhaconta.component.html',
-  styleUrls: ['./minhaconta.component.css']
+  selector: 'app-createpostblog',
+  templateUrl: './createpostblog.component.html',
+  styleUrls: ['./createpostblog.component.css']
 })
-export class MinhacontaComponent implements OnInit {
+export class CreatepostblogComponent implements OnInit {
 
   creds: Credenciais = {       
     email: '',
     password: '',
+  }
+
+  postBlog: PostBlog = {        
+    title: '',
+    author: '',    
+    text: '',
+    categoryPost: '',
+    subCategory: '',
+    creator: '',
+    nameCreator: ''
   }
   
   usuario: Usuario = {
@@ -28,9 +39,9 @@ export class MinhacontaComponent implements OnInit {
     profile: [],
   }
 
-  email = new FormControl(null, Validators.email);
+  title = new FormControl(null, Validators.minLength(10));
   password = new FormControl(null, Validators.minLength(3));
-  name = new FormControl(null, Validators.minLength(3) );
+  name = new FormControl(null, Validators.minLength(3) );  
   cpf = new FormControl(null, Validators.minLength(11))
 
   constructor(private service: AuthService, 
@@ -45,7 +56,7 @@ export class MinhacontaComponent implements OnInit {
   }
 
   validaCampos(): boolean {
-    return this.email.valid && this.password.valid && this.name.valid && this.cpf.valid;
+    return this.title.valid && this.password.valid && this.name.valid && this.cpf.valid;
   }
 
   findByEmail(): void {
@@ -71,4 +82,3 @@ export class MinhacontaComponent implements OnInit {
   }
 
 }
-

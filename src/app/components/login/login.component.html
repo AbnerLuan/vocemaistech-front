@@ -1,26 +1,32 @@
-<div class="container">
+<div class="card shadow-lg p-3 mb-5"> 
+  
     <form>
-        <h1>Tela de Login</h1>
+      <h1>Acessar Minha Conta</h1>
 
-        <div class="form-group">            
-          <label for="Email1">Endereço de email</label>
-          <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" 
-          [formControl]="email" [(ngModel)]="creds.email" required="true" name="email" placeholder="Seu email">
-          <small id="emailHelp" class="form-text text-muted ">Nunca vamos compartilhar seu email, com ninguém.</small>
-        </div>
+      <div class="form-group">
+        <label for="Email1">Email</label>
+        <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" [formControl]="email"
+          [(ngModel)]="creds.email" required="true" name="email" placeholder="Seu email">        
+      </div>
 
-        <div class="form-group">
-          <label for="Password1">Senha</label>
-          <input type="password" class="form-control" id="Password" 
-          [formControl]="password" [(ngModel)]="creds.password" name="password" placeholder="Senha">
-        </div>
+      <div class="form-group">
+        <label for="Password1">Senha</label>
+        <input type="password" class="form-control" id="Password" [formControl]="password" [(ngModel)]="creds.password"
+          name="password" placeholder="Senha">
+      </div>
 
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="Check1">
-          <label class="form-check-label" for="Check1">Clique em mim</label>
-        </div>
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="Check1">
+        <label class="form-check-label" for="Check1">Lembrar-me</label>
+      </div>
 
-        <button (click)="logar()" [disabled]="!validaCampos()" type="submit" class="btn btn-primary">LOGAR</button>
-        {{ creds.email }}
-      </form>
-</div>
+      <div class="button">
+        <button (click)="logar()" [disabled]="!validaCampos()" type="submit" class="btn btn-success btn-block">ACESSAR</button>
+      </div>
+    <br>
+    <div class="cadastre-se">
+      <P >Ainda não tem conta? <button type="button" class="btn btn-dark" routerLink="/cadastro">CADASTRE-SE</button></P>
+    </div>
+    </form>
+  </div>
+

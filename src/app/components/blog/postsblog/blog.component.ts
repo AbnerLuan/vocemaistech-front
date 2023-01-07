@@ -1,7 +1,7 @@
 
-import { PostBlog } from '../../models/postblog';
+import { PostBlog } from '../../../models/postblog';
 import { Component, OnInit } from '@angular/core';
-import { PostblogService } from '../../services/postblog.service';
+import { PostblogService } from '../../../services/postblog.service';
 
 @Component({
   selector: 'app-blog',

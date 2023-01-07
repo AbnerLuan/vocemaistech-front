@@ -1,11 +1,11 @@
 export interface PostBlog {
-    id?: String,
-    title: String,
-    author: String,
-    date: Date,
-    text: String,
-    categoryPost: String,
-    subCategory: String,
-    creator: String,
-    nameCreator: String
+    id?: string,
+    title: string,
+    author: string,
+    date?: any,
+    text: string,
+    categoryPost: string,
+    subCategory: string,
+    creator: string,
+    nameCreator: string
 }

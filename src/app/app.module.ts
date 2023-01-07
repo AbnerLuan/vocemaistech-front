@@ -7,12 +7,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BlogComponent } from './components/blog/blog.component';
+import { BlogComponent } from './components/blog/postsblog/blog.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { MinhacontaComponent } from './components/minhaconta/minhaconta.component';
+import { CadastroComponent } from './components/cadastro/cadastro.component';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
+import { CreatepostblogComponent } from './components/blog/createpostblog/createpostblog.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { MinhacontaComponent } from './components/minhaconta/minhaconta.componen
     HeaderComponent,
     HomeComponent,
     LoginComponent,
-    MinhacontaComponent
+    MinhacontaComponent,
+    CadastroComponent,
+    CreatepostblogComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,7 @@ import { MinhacontaComponent } from './components/minhaconta/minhaconta.componen
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

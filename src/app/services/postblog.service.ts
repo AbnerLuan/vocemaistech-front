@@ -14,6 +14,7 @@ export class PostblogService {
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<PostBlog[]> {
-    return this.http.get<PostBlog[]>(this.baseUrl);
+    return this.http.get<PostBlog[]>(`${environment.baseUrl}postsblog`);
+    
   }
 }

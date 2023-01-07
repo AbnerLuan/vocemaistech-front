@@ -1,8 +1,11 @@
+import { CreatepostblogComponent } from './components/blog/createpostblog/createpostblog.component';
+
+import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { AuthGuard } from './auth/auth.guard';
 import { MinhacontaComponent } from './components/minhaconta/minhaconta.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { BlogComponent } from './components/blog/blog.component';
+import { BlogComponent } from './components/blog/postsblog/blog.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,7 +13,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'cadastro', component: CadastroComponent }, 
+  { path: 'createpostblog', component: CreatepostblogComponent },   
+  { path: '', redirectTo: '/home', pathMatch: 'full' },  
 
   { path: 'minhaconta', component: MinhacontaComponent, canActivate: [AuthGuard], children: [
     

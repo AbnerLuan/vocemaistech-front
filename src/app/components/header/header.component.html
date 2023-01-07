@@ -6,7 +6,6 @@
             aria-controls="navbarTogglerDemo01" aria-expanded="true" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!--   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">     -->
         <div class="container d-flex align-items-center">
 
@@ -32,18 +31,10 @@
 
             </ul>
             <div class="login">                
-                <button class="btn btn-dark" type="submit" routerLink="/minhaconta">LOGIN</button>
+                <button class="btn btn-dark" type="submit" routerLink="/minhaconta">Acessar Conta</button>
+                <button (click)="logout()" class="btn btn-dark" type="submit" routerLink="/home">Sair</button>                                  
             </div>
         </div>
 
     </div>
 </nav>
-<!-- 
- <div class="buttons">
-            <a mat-button routerLink="/home"><i class="material-icons">home</i>Home</a>
-            <a mat-button routerLink="/blog"><i class="material-icons">rss_feed</i>Blog</a>
-            <a mat-button routerLink="/cursos"><i class="material-icons">school</i>Cursos</a>
-            <a mat-button routerLink="/comunidade"><i class="material-icons">forum</i>Comunidade</a>
-        </div>
-
-   -->
