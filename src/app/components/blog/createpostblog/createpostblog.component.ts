@@ -1,11 +1,9 @@
+import { ToastrService } from 'ngx-toastr';
+import { PostblogService } from './../../../services/postblog.service';
 import { PostBlog } from './../../../models/postblog';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Credenciais } from 'src/app/models/credenciais';
-import { Usuario } from 'src/app/models/usuario';
-import { AuthService } from 'src/app/services/auth.service';
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-createpostblog',
@@ -14,71 +12,39 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class CreatepostblogComponent implements OnInit {
 
-  creds: Credenciais = {       
-    email: '',
-    password: '',
-  }
-
-  postBlog: PostBlog = {        
+  postBlog: PostBlog = {
     title: '',
-    author: '',    
+    author: '',
     text: '',
     categoryPost: '',
     subCategory: '',
-    creator: '',
-    nameCreator: ''
-  }
-  
-  usuario: Usuario = {
-    id: 0,
-    email: '',
-    cpf: '',
-    password: '',
-    name: '',
-    memberSince: new Date(),
-    profile: [],
+    creator: '2',
   }
 
   title = new FormControl(null, Validators.minLength(10));
-  password = new FormControl(null, Validators.minLength(3));
-  name = new FormControl(null, Validators.minLength(3) );  
-  cpf = new FormControl(null, Validators.minLength(11))
+  category = new FormControl(null, Validators.minLength(3));
+  subcategory = new FormControl(null, Validators.minLength(11));
+  text = new FormControl(null, Validators.minLength(5));
 
-  constructor(private service: AuthService, 
-              private router: Router,
-              private usuarioService: UsuarioService,
-              private route: ActivatedRoute
-  ) { }
 
-  ngOnInit(): void { 
-    this.creds.email = localStorage.getItem('email')
-    this.findByEmail();    
+  constructor(private postblogService: PostblogService,
+    private router: Router,
+    private toast: ToastrService) { }
+
+  ngOnInit(): void {
+    this.postBlog.author = localStorage.getItem('nameUser').split(' ')[0];
   }
 
   validaCampos(): boolean {
-    return this.title.valid && this.password.valid && this.name.valid && this.cpf.valid;
+    return this.title.valid && this.category.valid && this.subcategory.valid && this.text.valid;
   }
 
-  findByEmail(): void {
-    this.usuarioService.findByEmail(this.creds.email).subscribe(resposta => {           
-      this.usuario = resposta;
-    }
-    );
-  }
-
-  update(): void {
-    this.usuarioService.update(this.usuario).subscribe(() => {
-      alert('Usuario atualizado com sucesso');
-      this.router.navigate(['minhaconta'])
+  create(): void {
+    this.postblogService.create(this.postBlog).subscribe(() => {
+      this.toast.success('Postagem criada com sucesso', 'Parabéns!');
+      this.router.navigate(['blog'])
     }, ex => {
-      if (ex.error.errors) {
-        ex.error.errors.forEach(element => {
-          alert(element.message);
-        });
-      } else {
-        alert(ex.error.message);
-      }
+      this.toast.error('Preencha todos os campos obrigatórios *', 'Campo Obrigatório (*)')
     })
   }
-
 }

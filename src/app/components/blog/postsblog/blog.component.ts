@@ -1,6 +1,5 @@
-
-import { PostBlog } from '../../../models/postblog';
 import { Component, OnInit } from '@angular/core';
+import { PostBlog } from 'src/app/models/postblog';
 import { PostblogService } from '../../../services/postblog.service';
 
 @Component({
@@ -10,17 +9,17 @@ import { PostblogService } from '../../../services/postblog.service';
 })
 export class BlogComponent implements OnInit {
 
-list: PostBlog[] = [];
+  list: PostBlog[] = [];
 
-constructor(private service: PostblogService) {} 
+  constructor(private service: PostblogService) { }
 
-  ngOnInit(): void {   
-    this.findAll();    
+  ngOnInit(): void {
+    this.findAll();
   }
 
   findAll(): void {
     this.service.findAll().subscribe((resposta) => {
-      this.list = resposta;      
-    })    
+      this.list = resposta;
+    })
   }
 }

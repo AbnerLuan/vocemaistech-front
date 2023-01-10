@@ -1,10 +1,62 @@
-.card {
-    width: 85%;
-    margin: 2rem auto;    
-    height: 45rem;
+.banners-content {
+    width: 100%;
+    text-align: center;
+    margin: 0rem auto 2rem auto;      
 }
 
-img {
-    height: 100%;  
-    width: 100%;    
+.banners-content h2, p {    
+    text-align: left; 
 }
+
+.banners-content h2  {    
+    font-size: 3rem; 
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.banners-content p  {    
+    font-style: italic;
+    font-size: 1.2rem;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.banners-content h3 {
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.picsum-img-wrapper img {
+    width: 100%;
+}
+
+.row {
+    width: 85%;
+    text-align: center;
+    margin: auto auto 2rem auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+    font-weight: 600;
+    font-size: 2.5rem;
+}
+
+.redes-sociais {
+    width: 85%;
+    text-align: center;  
+    margin: 0rem auto 2rem auto;  
+}
+
+.redes-sociais img {    
+    margin-top: 2rem;
+    justify-content: space-between;    
+    max-width:200px;    
+    width: auto;    
+    
+}
+
+
+
+
+
+
+  

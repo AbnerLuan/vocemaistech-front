@@ -1,3 +1,4 @@
+import { PostDetailsComponent } from './components/blog/post-details/post-details.component';
 import { CreatepostblogComponent } from './components/blog/createpostblog/createpostblog.component';
 
 import { CadastroComponent } from './components/cadastro/cadastro.component';
@@ -13,14 +14,16 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'cadastro', component: CadastroComponent }, 
-  { path: 'createpostblog', component: CreatepostblogComponent },   
-  { path: '', redirectTo: '/home', pathMatch: 'full' },  
+  { path: 'cadastro', component: CadastroComponent },
+  { path: 'createpostblog', component: CreatepostblogComponent },
+  { path: 'post-details/:id', component: PostDetailsComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 
-  { path: 'minhaconta', component: MinhacontaComponent, canActivate: [AuthGuard], children: [
-    
-  ] 
-}
+  {
+    path: 'minhaconta', component: MinhacontaComponent, canActivate: [AuthGuard], children: [
+
+    ]
+  }
 ];
 
 @NgModule({

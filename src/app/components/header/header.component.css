@@ -1,16 +1,25 @@
-img {
-    height: 5rem;
+.navbar {
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 10%, rgba(0, 18, 147, 1) 44%, rgba(17, 104, 215, 1) 61%, rgba(10, 31, 144, 1) 90%);
 }
 
-.container{
+.container-fluid {
     width: 85%;
     display: inline-flex;
-    vertical-align: middle;
     justify-content: center;
 }
 
-.navbar {    
-    background: linear-gradient(180deg, rgba(2,0,36,1) 10%, rgba(0,18,147,1) 44%, rgba(17,104,215,1) 61%, rgba(10,31,144,1) 90%);
+.container-fluid img {
+    height: 4rem;
+}
+
+.navbar-toggler {
+    color: white;
+    border-color: rgb(147, 130, 223);
+}
+
+fa-icon {
+    font-size: .8rem;
+    margin: auto .3rem auto auto;
 }
 
 a {
@@ -19,26 +28,29 @@ a {
     font-style: unset;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
     text-decoration: underline;
     font-size: larger;
-    font-style: unset;   
-}
-
-.container {
-    display: block;
+    font-style: unset;
 }
 
 .nav-link {
-    display: flex;    
+    display: flex;
 }
 
-@media screen and (max-width: 700px) {
-    .nav-link {
-      display: none;
-    }
-  }
-button {
+.btn {
     margin-left: 1rem;
+    color: white;
+    font-weight: 500;
+    border-width: .12rem;
+    border-color: white;
 }
 
+.btn:hover,
+btn:active {
+    color: black;
+    background-color: white;
+    border-color: black;
+    border-width: .15rem;
+}

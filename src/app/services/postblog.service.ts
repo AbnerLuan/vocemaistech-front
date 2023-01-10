@@ -15,6 +15,13 @@ export class PostblogService {
 
   findAll(): Observable<PostBlog[]> {
     return this.http.get<PostBlog[]>(`${environment.baseUrl}postsblog`);
-    
+  }
+
+  create(postblog: PostBlog): Observable<PostBlog> {
+    return this.http.post<PostBlog>(`${environment.baseUrl}postsblog`, postblog);
+  }
+
+  findById(id: any): Observable<PostBlog> {
+    return this.http.get<PostBlog>(`${environment.baseUrl}postsblog/${id}`);
   }
 }

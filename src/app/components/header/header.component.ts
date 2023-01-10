@@ -1,5 +1,10 @@
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import {
+  faHouse, faBlog, faGraduationCap, faUserGroup,
+  faArrowRightFromBracket, faArrowRightToBracket
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +12,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isMenuCollapsed = true;
 
-  constructor(private authService: AuthService) {}
-  
-  ngOnInit(): void {  }
+  iconHome = faHouse;
+  iconBlog = faBlog;
+  iconCursos = faGraduationCap;
+  iconComunidade = faUserGroup;
+  iconLogout = faArrowRightFromBracket;
+  iconLogin = faArrowRightToBracket;
+
+  constructor(private authService: AuthService,
+    private toast: ToastrService,
+  ) { }
+
+  ngOnInit(): void { }
 
   logout() {
-    this.authService.logout();    
+    this.authService.logout();
+    this.toast.info('Logout com sucesso', 'Logout', { timeOut: 500 })
   }
 }

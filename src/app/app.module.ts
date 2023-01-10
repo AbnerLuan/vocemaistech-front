@@ -16,7 +16,13 @@ import { MinhacontaComponent } from './components/minhaconta/minhaconta.componen
 import { CadastroComponent } from './components/cadastro/cadastro.component';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { CreatepostblogComponent } from './components/blog/createpostblog/createpostblog.component';
-
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { PostDetailsComponent } from './components/blog/post-details/post-details.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgIf } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,6 +35,7 @@ import { CreatepostblogComponent } from './components/blog/createpostblog/create
     MinhacontaComponent,
     CadastroComponent,
     CreatepostblogComponent,
+    PostDetailsComponent
    
   ],
   imports: [
@@ -36,9 +43,20 @@ import { CreatepostblogComponent } from './components/blog/createpostblog/create
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    EditorModule,
+    ToastrModule.forRoot({
+      timeOut:5000,
+      closeButton: true, 
+      progressBar: true,      
+    }),
+    NgxMaskDirective, NgxMaskPipe,
+    FontAwesomeModule,
+    NgbModule,
+    NgIf,
+    NgbCarouselModule
   ],
-  providers: [AuthInterceptorProvider],
+  providers: [AuthInterceptorProvider, provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

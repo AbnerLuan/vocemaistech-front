@@ -1,40 +1,35 @@
-
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!--   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">     -->
-        <div class="container d-flex align-items-center">
+        <a><img src="assets/img/logo.png" alt="voce mais tech"></a>
 
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex align-items-center">
-                
-                <img src="assets/img/logo.png" alt="voce mais tech">  
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
 
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link" routerLink="/home">Home</a>                    
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/home"><fa-icon [icon]="iconHome"></fa-icon>Home</a>
                 </li>
 
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link" routerLink="/blog">Blog</a>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/blog"><fa-icon [icon]="iconBlog"></fa-icon>Blog</a>
                 </li>
 
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link disabled" routerLink="/cursos">Cursos</a>
+                <li class="nav-item">
+                    <a class="nav-link disabled" routerLink="/cursos"><fa-icon [icon]="iconCursos"></fa-icon>Cursos</a>
                 </li>
 
-                <li class="nav-item d-flex align-items-center">
-                    <a class="nav-link disabled" routerLink="/comunidade"><i class="bi bi-house"></i>Comunidade</a>
+                <li class="nav-item">
+                    <a class="nav-link disabled" routerLink="/comunidade"><fa-icon
+                            [icon]="iconComunidade"></fa-icon>Comunidade</a>
                 </li>
-
             </ul>
-            <div class="login">                
-                <button class="btn btn-dark" type="submit" routerLink="/minhaconta">Acessar Conta</button>
-                <button (click)="logout()" class="btn btn-dark" type="submit" routerLink="/home">Sair</button>                                  
+            <div class="login-logout">
+                <button class="btn btn-outline-dark btn-sm" type="submit" routerLink="/minhaconta"><fa-icon
+                        [icon]="iconLogin"></fa-icon>ENTRAR</button>
+                <button (click)="logout()" class="btn btn-outline-dark btn-sm" type="submit" routerLink="/home"><fa-icon
+                        [icon]="iconLogout"></fa-icon>SAIR</button>
             </div>
         </div>
-
     </div>
 </nav>

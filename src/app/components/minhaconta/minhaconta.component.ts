@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-minhaconta',
@@ -36,7 +38,8 @@ export class MinhacontaComponent implements OnInit {
   constructor(private service: AuthService, 
               private router: Router,
               private usuarioService: UsuarioService,
-              private route: ActivatedRoute
+              private route: ActivatedRoute,
+              private toast: ToastrService,
   ) { }
 
   ngOnInit(): void { 
@@ -57,15 +60,16 @@ export class MinhacontaComponent implements OnInit {
 
   update(): void {
     this.usuarioService.update(this.usuario).subscribe(() => {
-      alert('Usuario atualizado com sucesso');
+      this.toast.success('Usuario atualizado com sucesso');
+      localStorage.setItem('nameUser', this.usuario.name); 
       this.router.navigate(['minhaconta'])
     }, ex => {
       if (ex.error.errors) {
         ex.error.errors.forEach(element => {
-          alert(element.message);
+          this.toast.error(element.message);
         });
       } else {
-        alert(ex.error.message);
+        this.toast.error(ex.error.message);
       }
     })
   }

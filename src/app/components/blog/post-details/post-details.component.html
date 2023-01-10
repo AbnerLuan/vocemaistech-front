@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <div class="autor">
+        <h6 class="autor">Criado por: {{ postBlog.author }} em {{ postBlog.date }} </h6>
+      </div>
+
+      <div class="assunto">
+        <h6>#{{ postBlog.categoryPost }} #{{ postBlog.subCategory }} </h6>
+      </div>
+
+      <div class="botoes-header-card">
+
+      </div>
+
+    </div>
+    <div class="card-body">
+      <h1 class="card-title">{{ postBlog.title }}</h1>
+      <p class="card-text" [innerHTML]="postBlog.text">{{ postBlog.text }}</p>
+
+    </div>
+    <div class="card-footer text-muted">
+      www.vocemaistech.com.br
+    </div>
+  </div>
+</div>

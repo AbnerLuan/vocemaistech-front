@@ -1,9 +1,9 @@
+import { ToastrService } from 'ngx-toastr';
 import { UsuarioService } from './../../services/usuario.service';
 import { Usuario } from './../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -11,8 +11,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-  
-    usuario: Usuario = {
+
+  usuario: Usuario = {
     email: '',
     password: '',
     name: ''
@@ -20,33 +20,31 @@ export class CadastroComponent implements OnInit {
 
   email = new FormControl(null, Validators.email);
   password = new FormControl(null, Validators.minLength(3));
-  name = new FormControl(null, Validators.minLength(3) );
+  name = new FormControl(null, Validators.minLength(3));
+  termos = new FormControl(null, Validators.requiredTrue)
 
-  constructor(private service: AuthService, 
-              private router: Router,
-              private usuarioService: UsuarioService) { }
+  constructor(private router: Router,
+    private usuarioService: UsuarioService,
+    private toast: ToastrService,) { }
 
   ngOnInit(): void { }
 
   create(): void {
     this.usuarioService.create(this.usuario).subscribe(() => {
-      alert('Usuario cadastrado com sucesso');
+      this.toast.success('Usuario cadastrado com sucesso', 'Parabens');
       this.router.navigate(['minhaconta'])
     }, ex => {
       if (ex.error.errors) {
         ex.error.errors.forEach(element => {
-          alert(element.message);
+          this.toast.error(element.message);
         });
       } else {
-        alert(ex.error.message);
+        this.toast.error(ex.error.message);
       }
     })
   }
 
   validaCampos(): boolean {
-    return this.email.valid && this.password.valid && this.name.valid;
+    return this.email.valid && this.password.valid && this.name.valid && this.termos.valid;
   }
-
-}{
-
-}
+} 

@@ -1,11 +1,111 @@
+<div class="banners-content">
+  <ngb-carousel *ngIf="images"> 
 
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[0]" alt="Random first slide" />
+      </div>
+      <div class="carousel-caption">
+        <h2>Cooperação...</h2>
+        <p>Vamos trocar a competição pela cooperação, todos podemos vencer!</p>
+      </div>
+    </ng-template> 
 
-<div class="card text-bg-dark">
-    <img src="assets/img/banner.png" class="card-img-top" alt="voce mais tech">
-    <div class="card-img-overlay">
-      <h5 class="card-title">Por enquanto estamos em construção....</h5>
-      <p class="card-text">Mas em breve você terá aqui no site muito contaúdo sobre diversos temas relacionados a tecnologia!</p>
-      <p class="card-text"><small>Fique ligado!</small></p>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" alt="Random second slide" />
+      </div>
+      <div class="carousel-caption">
+        <h2>Compartilhe conhecimento...</h2>
+        <p>É ensinando que temos o maior aprendizado, conhecimento não pode ficar retido!</p>
+      </div>
+    </ng-template>
+
+  </ngb-carousel>
+</div>
+
+<h1>Qual conteúdo você encontrará aqui?</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="assets/img/programacao-banner.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Programação</h3>
+        <p class="card-text">Conteúdo sobre programação de forma simples e objetiva, aprender programação pode ser fácil
+          se ensinada na sua "linguagem".
+          Teremos conteúdo para quem está começando, partindo da lógica de programação evoluindo pouco a pouco
+          até os conteúdos mais avançados e complexos.</p>
+      </div>
+      <div class="card-footer">
+        <small type="button" class="text-muted" routerLink="/blog">Saiba mais...</small>
+      </div>
     </div>
   </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="assets/img/social-media-banner.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Social Media</h3>
+        <p class="card-text">Simplesmente uma das profissões que mais cresceram nos últimos anos, continua sendo uma das
+          profissões que mais crescerá, como senão bastasse,
+          pesquisas indicam que faltarão profissionais de social média no mercado na próxima década, mesmo com ganhos
+          financeiros bem atrativos, faltarão profissionais.
+          Com certeza é uma ótima ideia investir no aprendizado dessa área, fora os excelentes salários, traz diversos
+          benefícios como o tão desejado "Home Office".
+        </p>
+      </div>
+      <div class="card-footer">
+        <small type="button" class="text-muted" routerLink="/blog">Saiba mais...</small>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="assets/img/utilidades-banner.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Utilidades Tecnológicas</h3>
+        <p class="card-text">Aqui você terá dicas de variados assuntos, dicas e utilidades sobre vários tipos de
+          tecnologias, desde programação, social media,
+          até dicas de office para te ajudar no seu dia a dia, seja profissional ou pessoal. Além disso, traremos
+          novidades sobre produtos que podem agregar no seu dia a dia
+          aumentando sua produtividade e qualidade de vida.
+        </p>
+      </div>
+      <div class="card-footer">
+        <small type="button" class="text-muted" routerLink="/blog">Saiba mais...</small>
+      </div>
+    </div>
+  </div>
+</div>
 
+<h1>Quer conhecer um pouco sobre nós?</h1>
+
+<div class="banners-content">
+  <ngb-carousel>
+    <ng-template  ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="assets/img/sobre-nos.jpg" alt="Voce Mais Tech" />
+      </div>
+      <div class="carousel-caption">
+        <h3>Quem é a você mais tech?</h3>
+        <p>Desde sua inauguração em 2022, por dois amigos e amantes de tecnologia, 
+          temos como principal objetivo trazer conteúdo sobre tecnologia no geral, 
+          agregando conhecimento de forma simples, direta e objetiva a todos que tiverem interesse, 
+          nossa ideia é ter o máximo de interação possível com a galera que tiver interesse em aprender, e 
+          também com aqueles que tiverem interesse em disponibilizar algum conteúdo interessante para 
+          os demais, assim, além de outras pessoas aprenderem, certamente quem passou o conhecimento 
+          adiante aprendeu muito mais e colaborou para uma comunidade melhor, afinal, esse é o nosso lema:</p>
+          <h3>Juntos somos Melhores!</h3>
+      </div>
+    </ng-template> 
+  </ngb-carousel>
+</div>
+
+<h1>Conheça nossas Redes Sociais</h1>
+
+<div class="redes-sociais">
+ <a href="https://www.youtube.com/channel/UCnLT1z0rA3HCfxT0CtucE7g" target="_blank"> <img src="assets/img/logo-yt.jpg" alt="Voce mais Tech"></a>
+  <a href="https://www.tiktok.com/@vocemaistech01" target="_blank"><img src="assets/img/logo-tt.jpg" alt="Voce mais Tech"></a>
+ <a href="https://www.instagram.com/vocemaistech.com.br/" target="_blank"> <img src="assets/img/logo-insta.jpg" alt="Voce mais Tech"></a>
+</div>

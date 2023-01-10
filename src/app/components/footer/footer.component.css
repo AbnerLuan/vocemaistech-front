@@ -1,18 +1,20 @@
-.footer {
-    height: 3%;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    justify-content: center;
+.content {          
     font-size: 1rem;
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,1) 10%, rgba(10,31,144,1) 90%);
 }
 
-p {
+a {
     display: flex;
     align-items: center;
     color: white;
     vertical-align: middle;
     justify-content: center;
+    text-decoration: none;
 }
+
+#dev:hover {
+    text-decoration: underline;
+}
+
+

@@ -1,11 +1,11 @@
 export interface PostBlog {
-    id?: string,
+    id?: any,
     title: string,
     author: string,
     date?: any,
     text: string,
     categoryPost: string,
     subCategory: string,
-    creator: string,
-    nameCreator: string
+    creator?: string,
+    nameCreator?: string
 }

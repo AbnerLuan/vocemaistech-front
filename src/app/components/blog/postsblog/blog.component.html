@@ -1,36 +1,31 @@
+<h5>Filtrar Por:</h5>
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">    
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+    <label class="btn btn-outline-primary" aria-current="page" for="btnradio1">Programação</label>
 
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+    <label class="btn btn-outline-primary" aria-current="page" for="btnradio2">Social Media</label>
 
-<div class="card mb-3">
-    <div class="row g-0">
-        <div class="col-md-4">
-            <img src="assets/img/200x100.jpeg" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">Postagem em Destaque </h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                    content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+    <label class="btn btn-outline-primary" for="btnradio3">Utilidades</label>
+</div>
+
+<div class="content">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let item of list | slice:0:12">
+            <a routerLink="/post-details/{{item.id}}">
+                <div class="card h-100 bg-light">
+                    <img src="assets/img/new-post-banner.jpg" class="card-img-top" alt="Voce mais Tech">
+                    <div class="card-body">
+                        <h4 class="card-title"> {{ item.title }}</h4>
+                        <p class="card-text" [innerHTML]="item.text"> {{ item.text }} </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted"> {{ item.author }} em </small>
+                        <small class="text-muted"> {{ item.date }} </small>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 </div>
-
-
-
-    <div class="row row-cols-2 row-cols-md-3 d-flex justify-content-between" >
-        <div class="col" *ngFor="let item of list | slice:0:6">
-            <div class="card h-100">
-                <img src="assets/img/banner2.png" class="card-img-top" alt="Voce mais Tech">
-                <div class="card-body">
-                    <h5 class="card-title"> {{item.title}}</h5>
-                    <p class="card-text"> {{ item.text }} </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted"> {{ item.author }} </small>
-                    <small class="text-muted"> {{ item.date }} </small>
-                </div>
-            </div>
-        </div>
-
-    </div>

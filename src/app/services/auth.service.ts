@@ -19,15 +19,15 @@ export class AuthService {
   authenticate(creds: Credenciais) {
     return this.http.post(`${environment.baseUrl}login`, creds, {
       observe: 'response',
-      responseType: 'text'  
-    }).pipe(tap( res => {
-      this.usuarioLogado = res.headers.get('NameUser'); 
-      localStorage.setItem('nameUser', this.usuarioLogado)      
+      responseType: 'text'
+    }).pipe(tap(res => {
+      this.usuarioLogado = res.headers.get('NameUser');
+      localStorage.setItem('nameUser', this.usuarioLogado)
     }))
-}
+  }
 
   successfulLogin(authToken: string) {
-    localStorage.setItem('token', authToken);        
+    localStorage.setItem('token', authToken);
   }
 
   isAuthenticated() {

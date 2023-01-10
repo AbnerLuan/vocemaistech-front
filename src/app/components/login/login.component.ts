@@ -1,4 +1,4 @@
-
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,27 +12,28 @@ import { Credenciais } from 'src/app/models/credenciais';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   creds: Credenciais = {
     email: '',
-    password: ''    
+    password: ''
   }
 
   email = new FormControl(null, Validators.email);
   password = new FormControl(null, Validators.minLength(3));
 
-  constructor(private service: AuthService, 
-              private router: Router) { }
+  constructor(private service: AuthService,
+    private router: Router,
+    private toast: ToastrService) { }
 
   ngOnInit(): void { }
 
   logar() {
     this.service.authenticate(this.creds).subscribe(resposta => {
-      this.service.successfulLogin(resposta.headers.get('Authorization').substring(7));                     
-      this.router.navigate(['minhaconta']); 
+      this.service.successfulLogin(resposta.headers.get('Authorization').substring(7));
+      this.router.navigate(['minhaconta']);
       localStorage.setItem('email', this.creds.email);
     }, () => {
-      alert('Usuário e/ou senha inválidos');
+      this.toast.error('Usuário e/ou senha inválidos');
     })
   }
 
