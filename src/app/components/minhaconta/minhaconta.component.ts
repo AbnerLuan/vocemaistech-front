@@ -21,7 +21,7 @@ export class MinhacontaComponent implements OnInit {
   }
   
   usuario: Usuario = {
-    id: 0,
+    id: '',
     email: '',
     cpf: '',
     password: '',
@@ -54,6 +54,8 @@ export class MinhacontaComponent implements OnInit {
   findByEmail(): void {
     this.usuarioService.findByEmail(this.creds.email).subscribe(resposta => {           
       this.usuario = resposta;
+      localStorage.setItem('idUser', this.usuario.id) 
+      console.log(this.usuario.id) 
     }
     );
   }

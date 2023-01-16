@@ -54,3 +54,13 @@ btn:active {
     border-color: black;
     border-width: .15rem;
 }
+
+.login-logout {
+    display: flex;
+}
+
+.login-logout p {
+    color: white;
+    margin: auto;
+    font-size: 1.2rem;
+}

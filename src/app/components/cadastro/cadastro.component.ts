@@ -30,6 +30,7 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void { }
 
   create(): void {
+    console.log(this.usuario);
     this.usuarioService.create(this.usuario).subscribe(() => {
       this.toast.success('Usuario cadastrado com sucesso', 'Parabens');
       this.router.navigate(['minhaconta'])
@@ -42,9 +43,15 @@ export class CadastroComponent implements OnInit {
         this.toast.error(ex.error.message);
       }
     })
-  }
+  } 
 
   validaCampos(): boolean {
-    return this.email.valid && this.password.valid && this.name.valid && this.termos.valid;
+    return this.email.valid && this.password.valid && this.name.valid;
+  }
+
+  teste() {
+    console.log(this.usuario.email);
+    console.log(this.usuario.password);
+    console.log(this.usuario.name);
   }
 } 

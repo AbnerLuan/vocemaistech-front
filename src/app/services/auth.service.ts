@@ -1,33 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { tap } from 'rxjs';
 import { environment } from 'src/environments/environments';
 import { Credenciais } from '../models/credenciais';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  usuarioLogado: any;
-
   jwtService: JwtHelperService = new JwtHelperService();
 
   constructor(private http: HttpClient) { }
 
   authenticate(creds: Credenciais) {
-    return this.http.post(`${environment.baseUrl}login`, creds, {
+    return this.http.post(`${environment.urlLogin}login`, creds, {
       observe: 'response',
       responseType: 'text'
-    }).pipe(tap(res => {
-      this.usuarioLogado = res.headers.get('NameUser');
-      localStorage.setItem('nameUser', this.usuarioLogado)
-    }))
+    })
   }
 
   successfulLogin(authToken: string) {
     localStorage.setItem('token', authToken);
+    localStorage.setItem('nameUser', this.decodePayloadJWT().name);
+    localStorage.setItem('ROLES_USER', this.decodePayloadJWT().role);
   }
 
   isAuthenticated() {
@@ -38,7 +35,16 @@ export class AuthService {
     return false
   }
 
+  public decodePayloadJWT(): any {
+    try {
+      return jwt_decode(localStorage.getItem('token'));
+    } catch (Error) {
+      return null;
+    }
+  }
+
   logout() {
     localStorage.clear();
   }
 }
+

@@ -20,13 +20,13 @@
         <input type="password" class="form-control" id="Password" [formControl]="password" [(ngModel)]="usuario.password"
           name="password" placeholder="Senha">
       </div>
-
+<!-- 
       <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="Check1" required [formControl]="termos">
         <label type="checkbox" name="active" ngModel required class="form-check-label" for="Check1" >Concordo com os termos.</label>
-      </div>
+      </div>-->
 
-      <div class="button">
+     <div class="button">
         <button (click)="create()" [disabled]="!validaCampos()" type="submit" class="btn btn-success btn-block">CADASTRAR</button>
       </div>
     <br>

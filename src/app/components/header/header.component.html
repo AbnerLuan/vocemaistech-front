@@ -25,10 +25,17 @@
                 </li>
             </ul>
             <div class="login-logout">
-                <button class="btn btn-outline-dark btn-sm" type="submit" routerLink="/minhaconta"><fa-icon
-                        [icon]="iconLogin"></fa-icon>ENTRAR</button>
-                <button (click)="logout()" class="btn btn-outline-dark btn-sm" type="submit" routerLink="/home"><fa-icon
-                        [icon]="iconLogout"></fa-icon>SAIR</button>
+                <button [hidden]="verificaUsuario()" class="btn btn-outline-dark btn-sm" type="submit"
+                    routerLink="/minhaconta"><fa-icon [icon]="iconLogin"></fa-icon>ENTRAR</button>
+
+                <p [hidden]="!verificaUsuario()" href=""> Olá {{usuarioLogado}} </p>
+
+                <button [hidden]="!verificaUsuario()" class="btn btn-outline-dark btn-sm" type="submit"
+                    routerLink="/minhaconta"><fa-icon [icon]="iconLogout"></fa-icon>MINHA CONTA</button>
+
+                <button [hidden]="!verificaUsuario()" (click)="logout()" class="btn btn-outline-dark btn-sm"
+                    type="submit" routerLink="/home"><fa-icon [icon]="iconLogout"></fa-icon>SAIR</button>
+
             </div>
         </div>
     </div>

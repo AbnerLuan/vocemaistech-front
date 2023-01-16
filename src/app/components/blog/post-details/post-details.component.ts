@@ -13,13 +13,11 @@ export class PostDetailsComponent implements OnInit {
   postBlog: PostBlog = {
     id: '',
     title: '',
-    author: '',
+    nameAuthor: '',
     date: '',
     text: '',
     categoryPost: '',
     subCategory: '',
-    creator: '',
-    nameCreator: ''
   }
 
   constructor(private router: Router,

@@ -4,10 +4,11 @@ import { PostblogService } from '../../../services/postblog.service';
 
 @Component({
   selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  templateUrl: './list-posts.component.html',
+  styleUrls: ['./list-posts.component.css']
 })
-export class BlogComponent implements OnInit {
+export class ListPostsComponent implements OnInit {
+  
 
   list: PostBlog[] = [];
 

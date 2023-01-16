@@ -1,9 +1,9 @@
 export interface Usuario {
-    id?: number,
+    id?: string,
     name: string,
     cpf?: string,
     email: string,
     password: string,  
     memberSince?: Date,
-    profile?: string[]
+    profile?: number[]
 }

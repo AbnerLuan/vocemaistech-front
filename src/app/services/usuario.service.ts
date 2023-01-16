@@ -13,15 +13,15 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   create(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${environment.baseUrl}students`, usuario);
-  }
+    return this.http.post<Usuario>(`${environment.baseUrl}users`, usuario);
+ }
 
   findByEmail(email: any): Observable<Usuario> {
-    return this.http.get<Usuario>(`${environment.baseUrl}students/email/${email}`);
+    return this.http.get<Usuario>(`${environment.baseUrl}users/email/${email}`);
   }
 
   update(usuario: Usuario): Observable<Usuario> {
-    usuario.profile = ['3']
-    return this.http.put<Usuario>(`${environment.baseUrl}students/${usuario.id}`, usuario);
+  //  usuario.profile = ['3']
+    return this.http.put<Usuario>(`${environment.baseUrl}users/${usuario.id}`, usuario);
   }
 }

@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+
 import {
   faHouse, faBlog, faGraduationCap, faUserGroup,
   faArrowRightFromBracket, faArrowRightToBracket
@@ -12,7 +14,9 @@ import {
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
   isMenuCollapsed = true;
+  usuarioLogado = '';
 
   iconHome = faHouse;
   iconBlog = faBlog;
@@ -21,14 +25,28 @@ export class HeaderComponent implements OnInit {
   iconLogout = faArrowRightFromBracket;
   iconLogin = faArrowRightToBracket;
 
-  constructor(private authService: AuthService,
+  constructor(private service: AuthService,
     private toast: ToastrService,
+    private router: Router,
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    
+  }  
 
   logout() {
-    this.authService.logout();
-    this.toast.info('Logout com sucesso', 'Logout', { timeOut: 500 })
+    this.service.logout();
+    this.toast.info('Logout com sucesso', 'Logout', { timeOut: 500 });
+    this.verificaUsuario();
+    this.router.navigate(['']);    
+  }
+
+  verificaUsuario() {
+    this.usuarioLogado = (localStorage.getItem('nameUser'))
+    if (this.service.isAuthenticated() == false) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

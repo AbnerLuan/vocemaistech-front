@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BlogComponent } from './components/blog/postsblog/blog.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,11 +22,15 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgIf } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListPostsComponent } from './components/blog/list-posts/list-posts.component';
+import { SemAutorizacaoComponent } from './components/blog/sem-autorizacao/sem-autorizacao.component';
+import { MeusCursosComponent } from './components/cursos/meus-cursos/meus-cursos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogComponent,
+    ListPostsComponent,
     FooterComponent,
     HeaderComponent,
     HomeComponent,
@@ -35,7 +38,9 @@ import { NgIf } from '@angular/common';
     MinhacontaComponent,
     CadastroComponent,
     CreatepostblogComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    SemAutorizacaoComponent,
+    MeusCursosComponent,
    
   ],
   imports: [
@@ -54,8 +59,9 @@ import { NgIf } from '@angular/common';
     FontAwesomeModule,
     NgbModule,
     NgIf,
-    NgbCarouselModule
-  ],
+    NgbCarouselModule,
+    BrowserAnimationsModule
+      ],
   providers: [AuthInterceptorProvider, provideNgxMask()],
   bootstrap: [AppComponent]
 })

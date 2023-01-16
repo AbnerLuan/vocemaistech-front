@@ -1,3 +1,4 @@
+import { MinhacontaComponent } from './../../minhaconta/minhaconta.component';
 import { ToastrService } from 'ngx-toastr';
 import { PostblogService } from './../../../services/postblog.service';
 import { PostBlog } from './../../../models/postblog';
@@ -14,11 +15,11 @@ export class CreatepostblogComponent implements OnInit {
 
   postBlog: PostBlog = {
     title: '',
-    author: '',
+    nameAuthor: '',
+    author: localStorage.getItem('idUser'),
     text: '',
     categoryPost: '',
-    subCategory: '',
-    creator: '2',
+    subCategory: '', 
   }
 
   title = new FormControl(null, Validators.minLength(10));
@@ -29,10 +30,11 @@ export class CreatepostblogComponent implements OnInit {
 
   constructor(private postblogService: PostblogService,
     private router: Router,
-    private toast: ToastrService) { }
+    private toast: ToastrService,
+    ) { }
 
   ngOnInit(): void {
-    this.postBlog.author = localStorage.getItem('nameUser').split(' ')[0];
+    this.postBlog.nameAuthor = localStorage.getItem('nameUser').split(' ')[0];
   }
 
   validaCampos(): boolean {
