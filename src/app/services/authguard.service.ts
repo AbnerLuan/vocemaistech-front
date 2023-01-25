@@ -22,17 +22,21 @@ export class AuthguardService {
       const expectedRoles = activated.data['expectedRole'];
       const rolesUser = JSON.parse(JSON.stringify(localStorage.getItem('ROLES_USER')));
 
-      return new Observable<boolean>(Subscriber => {
-        if (!this.temPermissao(expectedRoles, rolesUser)) {
-          Subscriber.next(false);
-          this.router.navigate(['/sem-autorizacao']);
-        } else {
-          Subscriber.next(true);
-        }
-      });
+      if (rolesUser !== null && rolesUser.length) {
+
+        return new Observable<boolean>(Subscriber => {
+          if (!this.temPermissao(expectedRoles, rolesUser)) {
+            Subscriber.next(false);
+            this.router.navigate(['/sem-autorizacao']);
+          } else {
+            Subscriber.next(true);
+          }
+        });
+      }
     }
     return new Observable<boolean>(Subscriber => {
       Subscriber.next(true);
+      this.router.navigate(['/login']);
     });
   }
 

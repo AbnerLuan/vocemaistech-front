@@ -12,6 +12,7 @@
     display: flex;
     width: 85%;
     margin: 2rem auto 5rem auto;
+
 }
 
 .card-header,
@@ -36,10 +37,6 @@ h1 {
     display: flex;
 }
 
-.cadastre-se {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    font-size: larger;
-    font-weight: 700;
+.permissoes {
+    margin-top: 1rem;
 }

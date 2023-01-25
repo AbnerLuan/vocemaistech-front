@@ -14,14 +14,21 @@ export class UsuarioService {
 
   create(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`${environment.baseUrl}users`, usuario);
- }
+  }
+
+  findById(id: any): Observable<Usuario> {
+    return this.http.get<Usuario>(`${environment.baseUrl}users/${id}`);
+  }
 
   findByEmail(email: any): Observable<Usuario> {
     return this.http.get<Usuario>(`${environment.baseUrl}users/email/${email}`);
   }
 
   update(usuario: Usuario): Observable<Usuario> {
-  //  usuario.profile = ['3']
     return this.http.put<Usuario>(`${environment.baseUrl}users/${usuario.id}`, usuario);
+  }
+
+  findAll(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${environment.baseUrl}users`);
   }
 }

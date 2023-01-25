@@ -5,10 +5,11 @@
             Dados</label>
 
         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" aria-current="page" for="btnradio2">Meus Cursos</label>
+        <label class="btn btn-outline-primary" aria-current="page" for="btnradio2" routerLink="/meus-cursos">Meus
+            Cursos</label>
 
         <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="btnradio3" routerLink="/createpostblog">Nova Postagem</label>      
+        <label class="btn btn-outline-primary" for="btnradio3" routerLink="/createpostblog">Nova Postagem</label>
     </div>
 
     <div class="card text-center">
@@ -37,17 +38,17 @@
             <div class="checkbox">
                 <div class="form-check form-switch form-check-inline">
                     <input class="form-check-input" type="radio" role="switch" id="flexSwitchCheckDefault"
-                        name="inlineRadioOptions" value="0" [(ngModel)]="postBlog.categoryPost">
+                        name="inlineRadioOptions" value="PROGRAMACAO" [(ngModel)]="postBlog.categoryPost">
                     <label class="form-check-label" for="flexSwitchCheckDefault">Programação</label>
                 </div>
                 <div class="form-check form-switch form-check-inline">
                     <input class="form-check-input" type="radio" role="switch" id="flexSwitchCheckDefault"
-                        name="inlineRadioOptions" value="1" [(ngModel)]="postBlog.categoryPost">
+                        name="inlineRadioOptions" value="SOCIALMEDIA" [(ngModel)]="postBlog.categoryPost">
                     <label class="form-check-label" for="flexSwitchCheckChecked">Social Mídia</label>
                 </div>
                 <div class="form-check form-switch form-check-inline">
                     <input class="form-check-input" type="radio" role="switch" id="flexSwitchCheckDefault"
-                        name="inlineRadioOptions" value="2" [(ngModel)]="postBlog.categoryPost">
+                        name="inlineRadioOptions" value="UTILIDADES" [(ngModel)]="postBlog.categoryPost">
                     <label class="form-check-label" for="flexSwitchCheckChecked">Utilidades</label>
                 </div>
             </div>
@@ -77,4 +78,44 @@
     <div class="button-postar">
         <button (click)="create()" type="button" class="btn btn-success btn-lg">POSTAR</button>
     </div>
+
 </div>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Postagem Criada com Sucesso!!</h4>
+            </div>
+
+            <div class="modal-body">
+
+                <div class="card-body">
+                    <img src="{{ postBlog.imagePost }}" class="card-img-top" alt="Voce mais Tech">
+                </div>
+
+                <p> Parabens por sua postagem,
+                    Nós inserimos uma imagem padrão para sua postagem.
+                    Mas se você tiver uma imagem para colocar como capa,
+                    basta clicar no botão abaixo para fazer o upload dela.
+                </p>
+                <div class="modal-footer">
+                    <p> Imagens aceitas: jpg, jpeg, png. <br>Tamanho recomendado 200px x 200px</p>
+                    <div>
+                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                        <div class="file-upload">
+                            {{file || "Nenhum arquivo selecionado."}}
+                            <button [hidden]="exibirSalvar" type="button" class="btn btn-success"
+                                (click)="fileUpload.click()">Carregar nova imagem</button>
+                            <button [hidden]="!exibirSalvar" type="button" class="btn btn-success"
+                                (click)="update()">Salvar</button>
+                        </div>
+                    </div>
+                    <button [hidden]="exibirSalvar" type="button" class="btn btn-danger" (click)="closePopup()"
+                        routerLink="/blog">Deixar imagem padrão</button>
+
+                </div>
+            </div>
+        </div>
+    </div>

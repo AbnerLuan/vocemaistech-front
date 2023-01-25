@@ -1,21 +1,23 @@
-<h5>Filtrar Por:</h5>
-<div class="btn-group" role="group" aria-label="Basic radio toggle button group">    
+<h5>Filtro de teste</h5>
+<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-    <label class="btn btn-outline-primary" aria-current="page" for="btnradio1">Programação</label>
+    <label class="btn btn-outline-primary" aria-current="page" for="btnradio1" #PROGRAMACAO
+        (click)="filtroProgramacao()">Programação</label>
 
     <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-    <label class="btn btn-outline-primary" aria-current="page" for="btnradio2">Social Media</label>
+    <label class="btn btn-outline-primary" aria-current="page" for="btnradio2" (click)="filtroSocialMedia()">Social
+        Media</label>
 
     <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-    <label class="btn btn-outline-primary" for="btnradio3">Utilidades</label>
+    <label class="btn btn-outline-primary" for="btnradio3" (click)="filtroUtilidades()">Utilidades</label>
 </div>
 
 <div class="content">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col" *ngFor="let item of list | slice:0:12">
+        <div class="col" *ngFor="let item of listrenderizada | slice:0:12">
             <a routerLink="/post-details/{{item.id}}">
                 <div class="card h-100 bg-light">
-                    <img src="assets/img/new-post-banner.jpg" class="card-img-top" alt="Voce mais Tech">
+                    <img src="{{ item.imagePost }}" class="card-img-top" alt="Voce mais Tech">
                     <div class="card-body">
                         <h4 class="card-title"> {{ item.title }}</h4>
                         <p class="card-text" [innerHTML]="item.text"> {{ item.text }} </p>

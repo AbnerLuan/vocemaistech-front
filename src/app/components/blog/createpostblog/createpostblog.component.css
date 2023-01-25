@@ -50,3 +50,17 @@ h1 {
 h5 {
     margin: 1rem;
 }
+
+.file-input {
+    display: none;
+}
+
+.modal-title {
+    text-align: center;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.modal-body card {
+    margin-top: 0;
+}

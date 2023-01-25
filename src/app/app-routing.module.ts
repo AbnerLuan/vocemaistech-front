@@ -1,3 +1,8 @@
+import { ConstructionComponent } from './components/construction/construction.component';
+import { UserDetailComponent } from './components/admin/users-admin/user-detail/user-detail.component';
+import { SidenavAdminComponent } from './components/admin/sidenav-admin/sidenav-admin.component';
+import { DashboardAdminComponent } from './components/admin/dashboard-admin/dashboard-admin.component';
+import { ListUsersAdminComponent } from './components/admin/users-admin/list-users-admin/list-users-admin.component';
 import { MeusCursosComponent } from './components/cursos/meus-cursos/meus-cursos.component';
 import { SemAutorizacaoComponent } from './components/blog/sem-autorizacao/sem-autorizacao.component';
 import { ListPostsComponent } from './components/blog/list-posts/list-posts.component';
@@ -23,10 +28,20 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
   { path: 'minhaconta', component: MinhacontaComponent, canActivate: [AuthGuard] },
-  { path: 'sem-autorizacao', component: SemAutorizacaoComponent },
-  { path: 'meus-cursos', component: MeusCursosComponent },
-  { path: 'createpostblog', component: CreatepostblogComponent, canActivate:[AuthguardService], data:{expectedRole:['ROLE_ADMIN']} },
-  
+  { path: 'sem-autorizacao', component: SemAutorizacaoComponent, canActivate: [AuthGuard] },
+  { path: 'meus-cursos', component: MeusCursosComponent, canActivate: [AuthGuard] },
+  { path: 'createpostblog', component: CreatepostblogComponent, canActivate: [AuthguardService], data: { expectedRole: ['ROLE_ADMIN'] } },
+  {
+    path: 'admin', component: SidenavAdminComponent, canActivate: [AuthguardService], data: { expectedRole: ['ROLE_ADMIN'] }, children: [
+      { path: '', component: ConstructionComponent },
+      { path: 'usuarios-admin', component: ListUsersAdminComponent },
+      { path: 'usuarios-admin/user-detail/:id', component: UserDetailComponent },
+      { path: 'dashboard-admin', component: DashboardAdminComponent },
+      { path: 'construction', component: ConstructionComponent },
+    ]
+  },
+
+
 ];
 
 @NgModule({

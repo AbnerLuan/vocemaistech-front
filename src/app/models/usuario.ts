@@ -3,7 +3,8 @@ export interface Usuario {
     name: string,
     cpf?: string,
     email: string,
-    password: string,  
+    password: string,
     memberSince?: Date,
-    profile?: number[]
+    profile?: number[],
+    profileDescription?: string,
 }

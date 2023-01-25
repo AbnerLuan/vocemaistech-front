@@ -1,5 +1,5 @@
 export interface PostBlog {
-    id?: any,
+    id: any,
     title: string,
     author?: any
     nameAuthor: string,
@@ -7,4 +7,5 @@ export interface PostBlog {
     text: string,
     categoryPost: string,
     subCategory: string,
+    imagePost?: string
 }

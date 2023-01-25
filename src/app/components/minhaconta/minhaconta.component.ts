@@ -3,8 +3,7 @@ import { UsuarioService } from './../../services/usuario.service';
 import { Usuario } from './../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -15,11 +14,11 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class MinhacontaComponent implements OnInit {
 
-  creds: Credenciais = {       
+  creds: Credenciais = {
     email: '',
     password: '',
   }
-  
+
   usuario: Usuario = {
     id: '',
     email: '',
@@ -32,19 +31,17 @@ export class MinhacontaComponent implements OnInit {
 
   email = new FormControl(null, Validators.email);
   password = new FormControl(null, Validators.minLength(3));
-  name = new FormControl(null, Validators.minLength(3) );
+  name = new FormControl(null, Validators.minLength(3));
   cpf = new FormControl(null, Validators.minLength(11))
 
-  constructor(private service: AuthService, 
-              private router: Router,
-              private usuarioService: UsuarioService,
-              private route: ActivatedRoute,
-              private toast: ToastrService,
+  constructor(private router: Router,
+    private usuarioService: UsuarioService,
+    private toast: ToastrService,
   ) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     this.creds.email = localStorage.getItem('email')
-    this.findByEmail();    
+    this.findByEmail();
   }
 
   validaCampos(): boolean {
@@ -52,10 +49,9 @@ export class MinhacontaComponent implements OnInit {
   }
 
   findByEmail(): void {
-    this.usuarioService.findByEmail(this.creds.email).subscribe(resposta => {           
+    this.usuarioService.findByEmail(this.creds.email).subscribe(resposta => {
       this.usuario = resposta;
-      localStorage.setItem('idUser', this.usuario.id) 
-      console.log(this.usuario.id) 
+      localStorage.setItem('idUser', this.usuario.id)
     }
     );
   }
@@ -63,7 +59,7 @@ export class MinhacontaComponent implements OnInit {
   update(): void {
     this.usuarioService.update(this.usuario).subscribe(() => {
       this.toast.success('Usuario atualizado com sucesso');
-      localStorage.setItem('nameUser', this.usuario.name); 
+      localStorage.setItem('nameUser', this.usuario.name);
       this.router.navigate(['minhaconta'])
     }, ex => {
       if (ex.error.errors) {

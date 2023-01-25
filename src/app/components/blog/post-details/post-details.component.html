@@ -2,22 +2,21 @@
   <div class="card text-center">
     <div class="card-header">
       <div class="autor">
-        <h6 class="autor">Criado por: {{ postBlog.nameAuthor }} em {{ postBlog.date }} </h6>
+        <h5 class="autor">Criado por: {{ postBlog.nameAuthor }} em {{ postBlog.date }} </h5>
       </div>
 
       <div class="assunto">
-        <h6>#{{ postBlog.categoryPost }} #{{ postBlog.subCategory }} </h6>
+        <h5>#{{ postBlog.categoryPost }} #{{ postBlog.subCategory }} </h5>
       </div>
 
-      <div class="botoes-header-card">
-
-      </div>
+      <div class="botoes-header-card"></div>
 
     </div>
     <div class="card-body">
+      <img align="left" src="{{ postBlog.imagePost }}" alt="">
       <h1 class="card-title">{{ postBlog.title }}</h1>
       <p class="card-text" [innerHTML]="postBlog.text">{{ postBlog.text }}</p>
-
+      <p>{{ postBlog.imagePost }}</p>
     </div>
     <div class="card-footer text-muted">
       www.vocemaistech.com.br

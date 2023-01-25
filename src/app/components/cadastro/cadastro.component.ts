@@ -43,15 +43,10 @@ export class CadastroComponent implements OnInit {
         this.toast.error(ex.error.message);
       }
     })
-  } 
+  }
 
   validaCampos(): boolean {
     return this.email.valid && this.password.valid && this.name.valid;
   }
 
-  teste() {
-    console.log(this.usuario.email);
-    console.log(this.usuario.password);
-    console.log(this.usuario.name);
-  }
 } 

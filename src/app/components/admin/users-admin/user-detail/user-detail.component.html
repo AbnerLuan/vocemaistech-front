@@ -1,22 +1,14 @@
-<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-  <label class="btn btn-outline-primary" aria-current="page" for="btnradio1" routerLink="/minhaconta">Meus Dados</label>
-
-  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-  <label class="btn btn-outline-primary" aria-current="page" for="btnradio2" routerLink="/meus-cursos">Meus
-    Cursos</label>
-
-  <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-  <label class="btn btn-outline-primary" for="btnradio3" routerLink="/createpostblog">Nova Postagem</label>
-
-</div>
-
 <div class="card text-center">
   <div class="card-header">
-    Confira Seus Dados
+    Dados do usuário
   </div>
   <div class="card-body">
-    <h5 class="card-title">Mantenha seus dados atualizados.</h5>
+
+    <div class="form-group">
+      <label for="nome">ID:</label>
+      <input type="nome" class="form-control" id="nome" [(ngModel)]="usuario.id" required="false" disabled="true"
+        name="id">
+    </div>
 
     <div class="form-group">
       <label for="nome">Nome Completo:</label>
@@ -41,6 +33,15 @@
       <input type="password" class="form-control" id="Password" [formControl]="password" [(ngModel)]="usuario.password"
         name="password" placeholder="Senha">
     </div>
+
+    <div class="permissoes">
+      <label>Permissões do usuário:</label>
+      <label class="section" *ngFor="let check of checks">
+        <mat-checkbox class="margin" color="primary" type="checkbox" (click)="addPerfil(check.id)"
+          [checked]="check.check === 'true'"> {{check.name}}</mat-checkbox>
+      </label>
+    </div>
+
 
     <div class="button">
       <button (click)="update()" type="button" class="btn btn-success">ATUALIZAR DADOS</button>

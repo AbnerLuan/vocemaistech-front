@@ -24,4 +24,16 @@ export class PostblogService {
   findById(id: any): Observable<PostBlog> {
     return this.http.get<PostBlog>(`${environment.baseUrl}postsblog/${id}`);
   }
+
+  salvaImagem(formData: any): Observable<any> {
+    return this.http.post(`${environment.baseUrl}files/upload`, formData);
+  }
+
+  update(postBlog: PostBlog): Observable<PostBlog> {
+    return this.http.put<PostBlog>(`${environment.baseUrl}postsblog/${postBlog.id}`, postBlog);
+  }
+
+  findByCategory(categoryPost: string): Observable<PostBlog[]> {
+    return this.http.get<PostBlog[]>(`${environment.baseUrl}postsblog/categoryPost/${categoryPost}`);
+  }
 }

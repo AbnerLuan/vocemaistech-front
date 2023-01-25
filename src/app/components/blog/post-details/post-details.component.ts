@@ -31,10 +31,7 @@ export class PostDetailsComponent implements OnInit {
 
   findById(): void {
     this.postBlogService.findById(this.postBlog.id).subscribe(resposta => {
-      //    resposta.perfis = []
       this.postBlog = resposta;
-    }
-    );
-
+    });
   }
 }

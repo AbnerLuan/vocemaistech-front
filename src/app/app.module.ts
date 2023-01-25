@@ -26,6 +26,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ListPostsComponent } from './components/blog/list-posts/list-posts.component';
 import { SemAutorizacaoComponent } from './components/blog/sem-autorizacao/sem-autorizacao.component';
 import { MeusCursosComponent } from './components/cursos/meus-cursos/meus-cursos.component';
+import { SidenavAdminComponent } from './components/admin/sidenav-admin/sidenav-admin.component';
+import { ListUsersAdminComponent } from './components/admin/users-admin/list-users-admin/list-users-admin.component';
+import { DashboardAdminComponent } from './components/admin/dashboard-admin/dashboard-admin.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+
+import { UserDetailComponent } from './components/admin/users-admin/user-detail/user-detail.component';
+import { ConstructionComponent } from './components/construction/construction.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +55,7 @@ import { MeusCursosComponent } from './components/cursos/meus-cursos/meus-cursos
     PostDetailsComponent,
     SemAutorizacaoComponent,
     MeusCursosComponent,
-   
+    SidenavAdminComponent, ListUsersAdminComponent, DashboardAdminComponent, UserDetailComponent, ConstructionComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,17 +65,24 @@ import { MeusCursosComponent } from './components/cursos/meus-cursos/meus-cursos
     HttpClientModule,
     EditorModule,
     ToastrModule.forRoot({
-      timeOut:5000,
-      closeButton: true, 
-      progressBar: true,      
+      timeOut: 5000,
+      closeButton: true,
+      progressBar: true,
     }),
     NgxMaskDirective, NgxMaskPipe,
     FontAwesomeModule,
     NgbModule,
     NgIf,
     NgbCarouselModule,
-    BrowserAnimationsModule
-      ],
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatListModule,
+    MatCheckboxModule,
+  ],
   providers: [AuthInterceptorProvider, provideNgxMask()],
   bootstrap: [AppComponent]
 })

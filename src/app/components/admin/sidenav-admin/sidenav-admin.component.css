@@ -1,0 +1,12 @@
+.col-auto {
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 10%, rgba(0, 18, 147, 1) 44%, rgba(17, 104, 215, 1) 61%, rgba(10, 31, 144, 1) 90%);
+}
+
+.nav a {
+    color: white;
+}
+
+.nav a:hover {
+    color: rgb(221, 221, 221);
+    text-decoration: underline;
+}
