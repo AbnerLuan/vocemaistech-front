@@ -11,8 +11,7 @@ export class MeusCursosComponent implements OnInit {
   constructor(private toast: ToastrService,
   ) { }
 
-  ngOnInit(): void {     
-       
+  ngOnInit(): void {            
   }   
 
 }

@@ -1,24 +1,19 @@
 <div class="content">
-    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-        <label class="btn btn-outline-primary" aria-current="page" for="btnradio1" routerLink="/minhaconta">Meus
-            Dados</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" aria-current="page" for="btnradio2" routerLink="/meus-cursos">Meus
-            Cursos</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="btnradio3" routerLink="/createpostblog">Nova Postagem</label>
-    </div>
-
     <div class="card text-center">
         <div class="card-header">
-            Vamos gerar um novo conteúdo!
+            Editar Postagem!
         </div>
         <div class="card-body">
-            <h5 class="card-title">Preencha as informações da nova Postagem</h5>
-
+            <h5 class="card-title">Aqui você pode alterar as informações básicas.</h5>
+            <div class="img-post">
+                <img src="{{ postBlog.imagePost }}" alt="">
+                <button (click)="deleteImage(postBlog.imageName)" type="button" class="btn btn-danger">
+                    <i class="bi bi-trash"></i>
+                </button>
+                <button (click)="create()" type="button" class="btn btn-info">
+                    <i class="bi bi-pencil"></i>
+                </button>
+            </div>
             <div class="form-group">
                 <label for="nome">Autor da Postagem:</label>
                 <input disabled="true" type="text" class="form-control" id="author" required="true" name="author"
@@ -28,7 +23,7 @@
             <div class="form-group">
                 <label for="nome">Titulo da Postagem:</label>
                 <input type="text" class="form-control" id="title" [(ngModel)]="postBlog.title" required="true"
-                    name="nome" placeholder="Digite o título da postagem:">
+                    name="nome" [(ngModel)]="postBlog.title" placeholder="Digite o título da postagem:">
             </div>
 
             <div class="form-group">
@@ -76,7 +71,7 @@
     </div>
 
     <div class="button-postar">
-        <button (click)="create()" type="button" class="btn btn-success btn-lg">POSTAR</button>
+        <button type="button" class="btn btn-success" (click)="update()">Salvar</button>
     </div>
 
 </div>
@@ -86,36 +81,25 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h4 class="modal-title">Postagem Criada com Sucesso!!</h4>
+                <h4 class="modal-title">Vamos alterar a Imagem da postagem!</h4>
             </div>
 
             <div class="modal-body">
-
-                <div class="card-body">
-                    <img src="{{ postBlog.imagePost }}" class="card-img-top" alt="Voce mais Tech">
-                </div>
-
-                <p> Parabens por sua postagem,
-                    Nós inserimos uma imagem padrão para sua postagem.
-                    Mas se você tiver uma imagem para colocar como capa,
-                    basta clicar no botão abaixo para fazer o upload dela.
-                </p>
-                <div class="modal-footer">
-                    <p> Imagens aceitas: jpg, jpeg, png. <br>Tamanho recomendado 200px x 200px</p>
-                    <div>
-                        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
-                        <div class="file-upload">
-                            {{file || "Nenhum arquivo selecionado."}}
-                            <button [hidden]="exibirSalvar" type="button" class="btn btn-success"
-                                (click)="fileUpload.click()">Carregar nova imagem</button>
-                            <button [hidden]="!exibirSalvar" type="button" class="btn btn-success"
-                                (click)="update()">Salvar</button>
+                <p> - Imagens aceitas: jpg, jpeg, png. <br>- Tamanho recomendado 200px x 200px</p>
+                <div>
+                    <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                    <div class="file-upload">
+                        {{file || "Nenhum arquivo selecionado."}}
+                        <div class="buttons-edit-image">
+                            <button type="button" class="btn btn-success" (click)="fileUpload.click()">Carregar nova
+                                imagem</button>
+                            <button type="button" class="btn btn-danger" (click)="closePopup()">Continuar
+                                editando</button>
                         </div>
                     </div>
-                    <button [hidden]="exibirSalvar" type="button" class="btn btn-danger" (click)="closePopup()"
-                        routerLink="/blog">Deixar imagem padrão</button>
-
                 </div>
+
             </div>
         </div>
     </div>
+</div>

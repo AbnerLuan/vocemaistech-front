@@ -1,0 +1,78 @@
+.btn-group {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 50%;
+    margin: 2rem auto auto auto;
+}
+
+.card {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 85%;
+    margin: 2rem auto 5rem auto;
+}
+
+.card-header,
+.card-footer {
+    width: 100%;
+}
+
+.form-group {
+    margin: 1.5rem auto auto auto;
+    border-radius: 1rem;
+}
+
+.checkbox {
+    border-width: thin;
+    border-style: solid;
+    padding: .3rem;
+    border-color: rgba(125, 125, 141, 0.30);
+    border-radius: .3rem;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.textarea {
+    width: 100%;
+}
+
+.button-postar {
+    position: fixed;
+    bottom: 5%;
+    right: 1%;
+}
+
+h5 {
+    margin: 1rem;
+}
+
+.file-input {
+    display: none;
+}
+
+.modal-title {
+    text-align: center;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.modal-body card {
+    margin-top: 0;
+}
+
+img {
+    width: 25%;
+}
+
+.buttons-edit-image {
+    text-align: center;
+}
+
+button {
+    margin: .3rem;
+}

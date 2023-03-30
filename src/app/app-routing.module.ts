@@ -17,6 +17,8 @@ import { HomeComponent } from './components/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthguardService } from './services/authguard.service';
+import { PostsBlogComponent } from './components/admin/blog/posts-blog/posts-blog.component';
+import { EditPostComponent } from './components/admin/blog/edit-post/edit-post.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -38,10 +40,10 @@ const routes: Routes = [
       { path: 'usuarios-admin/user-detail/:id', component: UserDetailComponent },
       { path: 'dashboard-admin', component: DashboardAdminComponent },
       { path: 'construction', component: ConstructionComponent },
+      { path: 'posts-blog', component: PostsBlogComponent },
+      { path: 'posts-blog/edit-post/:id', component: EditPostComponent },
     ]
   },
-
-
 ];
 
 @NgModule({

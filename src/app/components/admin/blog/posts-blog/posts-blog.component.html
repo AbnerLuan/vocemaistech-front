@@ -1,0 +1,28 @@
+<h5>Qual postagem você quer editar?</h5>
+
+<div class="content">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let item of list | slice:0:12">           
+            <div class="card h-100 bg-light">
+                <div class="actions-buttons">
+                    <button (click)="delete(item.id)" type="button" class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                    <button routerLink="edit-post/{{ item.id }}" type="button" class="btn btn-info">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+                <a routerLink="/post-details/{{item.id}}" target="_blank"><img src="{{ item.imagePost }}" class="card-img-top" alt="Voce mais Tech"></a>
+                <div class="card-body">
+                    <h4 class="card-title"> {{ item.title }}</h4>
+                    <p class="card-text" [innerHTML]="item.text"> {{ item.text }} </p>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted"> {{ item.nameAuthor }} em </small>
+                    <small class="text-muted"> {{ item.date }} </small>
+                    <small class="text-muted"> {{ item.id }} </small>
+                </div>
+            </div>           
+        </div>
+    </div>
+</div>

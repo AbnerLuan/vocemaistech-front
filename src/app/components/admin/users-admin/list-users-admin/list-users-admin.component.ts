@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-users-admin',
@@ -17,7 +18,8 @@ export class ListUsersAdminComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private service: UsuarioService) { }
+  constructor(private service: UsuarioService,
+    private toast: ToastrService) { }
   ngOnInit(): void {
     this.findAll();
   }
@@ -34,6 +36,20 @@ export class ListUsersAdminComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+
+  delete(id: any): void {
+    const confirmacao = confirm("Quer realmente deletar esse usuário?");
+    if (confirmacao) {
+      this.service.delete(id).subscribe((resposta) => {
+        if (resposta === null) {
+          this.findAll();
+          this.toast.info('Postagem Deletada com Sucesso!');
+        }
+      })
+    };
+  }
+
 }
 
 

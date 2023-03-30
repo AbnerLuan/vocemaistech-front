@@ -7,5 +7,6 @@ export interface PostBlog {
     text: string,
     categoryPost: string,
     subCategory: string,
-    imagePost?: string
+    imagePost?: string,
+    imageName?: any
 }

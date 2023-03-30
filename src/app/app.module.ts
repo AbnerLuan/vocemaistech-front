@@ -39,6 +39,8 @@ import { ConstructionComponent } from './components/construction/construction.co
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
+import { PostsBlogComponent } from './components/admin/blog/posts-blog/posts-blog.component';
+import { EditPostComponent } from './components/admin/blog/edit-post/edit-post.component';
 
 
 @NgModule({
@@ -55,7 +57,7 @@ import { MatListModule } from '@angular/material/list';
     PostDetailsComponent,
     SemAutorizacaoComponent,
     MeusCursosComponent,
-    SidenavAdminComponent, ListUsersAdminComponent, DashboardAdminComponent, UserDetailComponent, ConstructionComponent,
+    SidenavAdminComponent, ListUsersAdminComponent, DashboardAdminComponent, UserDetailComponent, ConstructionComponent, PostsBlogComponent, EditPostComponent,
   ],
   imports: [
     BrowserModule,

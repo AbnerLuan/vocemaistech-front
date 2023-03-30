@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.service.authenticate(this.creds).subscribe(resposta => {
       this.service.successfulLogin(resposta.headers.get('Authorization').substring(7));
       this.router.navigate(['minhaconta']);
-      localStorage.setItem('email', this.creds.email);       
+      localStorage.setItem('email', this.creds.email);
     }, () => {
       this.toast.error('Usuário e/ou senha inválidos');
     })

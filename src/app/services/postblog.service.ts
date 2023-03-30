@@ -9,31 +9,41 @@ import { PostBlog } from '../models/postblog';
 })
 export class PostblogService {
 
-  baseUrl = environment.baseUrl;
-
   constructor(private http: HttpClient) { }
 
   findAll(): Observable<PostBlog[]> {
     return this.http.get<PostBlog[]>(`${environment.baseUrl}postsblog`);
   }
 
-  create(postblog: PostBlog): Observable<PostBlog> {
-    return this.http.post<PostBlog>(`${environment.baseUrl}postsblog`, postblog);
-  }
-
   findById(id: any): Observable<PostBlog> {
     return this.http.get<PostBlog>(`${environment.baseUrl}postsblog/${id}`);
   }
 
-  salvaImagem(formData: any): Observable<any> {
-    return this.http.post(`${environment.baseUrl}files/upload`, formData);
+  findByCategory(categoryPost: string): Observable<PostBlog[]> {
+    return this.http.get<PostBlog[]>(`${environment.baseUrl}postsblog/categoryPost/${categoryPost}`);
+  }
+
+  create(postblog: PostBlog): Observable<PostBlog> {
+    return this.http.post<PostBlog>(`${environment.baseUrl}postsblog`, postblog);
   }
 
   update(postBlog: PostBlog): Observable<PostBlog> {
     return this.http.put<PostBlog>(`${environment.baseUrl}postsblog/${postBlog.id}`, postBlog);
   }
 
-  findByCategory(categoryPost: string): Observable<PostBlog[]> {
-    return this.http.get<PostBlog[]>(`${environment.baseUrl}postsblog/categoryPost/${categoryPost}`);
+  delete(id: any): Observable<void> {
+    const url = `${environment.baseUrl}postsblog/${id}`;
+    return this.http.delete<void>(url);
+  }
+
+  salvaImagem(formData: any): Observable<any> {
+    return this.http.post(`${environment.baseUrl}files/upload`, formData);
+  }
+
+  deleteImage(imageName: any): Observable<void> {
+    const url = `${environment.baseUrl}files/delete/${imageName}`;
+    return this.http.delete<void>(url);
   }
 }
+
+

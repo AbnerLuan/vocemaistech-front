@@ -9,11 +9,10 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioService {
 
-
   constructor(private http: HttpClient) { }
 
-  create(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${environment.baseUrl}users`, usuario);
+  findAll(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${environment.baseUrl}users`);
   }
 
   findById(id: any): Observable<Usuario> {
@@ -24,11 +23,16 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${environment.baseUrl}users/email/${email}`);
   }
 
+  create(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(`${environment.baseUrl}users`, usuario);
+  }
+
   update(usuario: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(`${environment.baseUrl}users/${usuario.id}`, usuario);
   }
 
-  findAll(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${environment.baseUrl}users`);
+  delete(id: any): Observable<void> {
+    const url = `${environment.baseUrl}users/${id}`;
+    return this.http.delete<void>(url);
   }
 }

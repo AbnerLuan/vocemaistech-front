@@ -14,13 +14,12 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor(config: NgbCarouselConfig) {
-    config.interval = 2000;
+    config.interval = 3000;
     config.keyboard = true;
     config.pauseOnHover = true;
   }
 
   ngOnInit(): void {
-
   }
 
 }

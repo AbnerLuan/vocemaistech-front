@@ -9,3 +9,7 @@ h1 {
 .filtro {
     width: 100%;
 }
+
+button {
+    margin: .3rem;
+}
