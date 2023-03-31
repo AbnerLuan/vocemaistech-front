@@ -1,27 +1,85 @@
-# VoceMaisTech
+# :card_index_dividers:Indice
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
+- [Sobre o projeto](#sobre-o-projeto)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Como baixar o projeto](#como-baixar-o-projeto)
+- [Fotos do projeto](#fotos-do-projeto)
 
-## Development server
+# :computer:Sobre o projeto 
+O projeto Voce Mais Tech foi desenvolvido para prática de vários conceitos de programação, mas tendo como objetivo ser um projeto com possibilidade de escalonamento, podendo em breve se tornar um portal de conteúdo sobre programação, facilitando o aprendizado de novos programadores com conteúdos compartilhados gratuitamente. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Projeto pode ser acessado através do link: www.vocemaistech.com.br
 
-## Code scaffolding
+# :hammer:Tecnologias utilizadas:
+- Java 17;
+- SpringBoot 3.0;
+- SpringSecurity;
+- Spring Jpa;
+- Lombok;
+- H2 Database;
+- PostgreSQL;
+- Postman;
+- Eclipse;
+- Visual Studio Code;
+- Angular 15.0.4;
+- AWS;
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# :open_file_folder:Como baixar o projeto
+```bash
+# Clone o repositório com o comando abaixo
+$ git clone https://github.com/AbnerLuan/vocemaistech-front
 
-## Build
+# Entre no diretório do projeto com o comando abaixo
+$ cd vocemaistech
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Instale todas as dependências com o comando abaixo
+$ npm install
 
-## Running unit tests
+# Inicie o projeto localmente e acesso-o pelo endereco `http://localhost:4200/`.
+$ ng serve
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# :open_file_folder:Principais Funcionalidades
+- Cadastro de usuário;
+- Login de usuário com retorno de token JWT;
+- Visualização e edição dos dados do usuário logado;
+- Cadastramento de permissões de usuário por roles;
+- Para usuário com permissão, poderá criar postagem que aparecerá na sessão "Blog";
+- Carregamento de imagem na postagem do blog, salvando a imagem na AWS S3 e o link da imagem no banco de dados;
+- Área de administrador (só pode acessar quem tem a ROLE_ADMIN);
+- Admin poderá listar, editar ou excluir todos os usuários do sistema;
+- Admin poderá editar ou excluir qualquer postagem feita no Blog;
+- Entre outros.
 
-## Running end-to-end tests
+# :camera_flash:Fotos do Projeto
+## Login/Cadastro:closed_lock_with_key: 
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_121041.png?updatedAt=1680275466610">
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Minha Conta:technologist:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_122108.png?updatedAt=1680276648052">
 
-## Further help
+## Criar Postagem Blog (obs: Apenas usuários com permissão):customs:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_121215.png?updatedAt=1680276647998">
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Página exibição das postagens:customs:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_121236.png?updatedAt=1680276648701">
+
+## Página de Admin - Lista todos usuários:scroll:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_122057.png?updatedAt=1680276648027">
+
+## Página de Admin - Editando usuarios e permissões:scroll:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_122400.png?updatedAt=1680276648077">
+
+## Página de Admin - Listando as postagens do Blog:scroll:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_122411.png?updatedAt=1680276648487">
+
+## Página de Admin - Editando uma postagem do Blog:scroll:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_122439.png?updatedAt=1680276648294">
+
+## Página de Admin - Alterando a imagem principal da postagem:scroll:
+<img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_122458.png?updatedAt=1680276648192">
+
+
+
+
+
