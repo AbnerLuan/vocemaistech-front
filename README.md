@@ -5,12 +5,12 @@
 - [Como baixar o projeto](#como-baixar-o-projeto)
 - [Fotos do projeto](#fotos-do-projeto)
 
-# :computer:Sobre o projeto 
+# Sobre o projeto 
 O projeto Voce Mais Tech foi desenvolvido para prática de vários conceitos de programação, mas tendo como objetivo ser um projeto com possibilidade de escalonamento, podendo em breve se tornar um portal de conteúdo sobre programação, facilitando o aprendizado de novos programadores com conteúdos compartilhados gratuitamente. 
 
 Projeto pode ser acessado através do link: www.vocemaistech.com.br
 
-# :hammer:Tecnologias utilizadas:
+# Tecnologias utilizadas:
 - Java 17;
 - SpringBoot 3.0;
 - SpringSecurity;
@@ -24,7 +24,7 @@ Projeto pode ser acessado através do link: www.vocemaistech.com.br
 - Angular 15.0.4;
 - AWS;
 
-# :open_file_folder:Como baixar o projeto
+# Como baixar o projeto
 ```bash
 # Clone o repositório com o comando abaixo
 $ git clone https://github.com/AbnerLuan/vocemaistech-front
@@ -39,7 +39,7 @@ $ npm install
 $ ng serve
 ```
 
-# :open_file_folder:Principais Funcionalidades
+# Principais Funcionalidades
 - Cadastro de usuário;
 - Login de usuário com retorno de token JWT;
 - Visualização e edição dos dados do usuário logado;
@@ -47,11 +47,12 @@ $ ng serve
 - Para usuário com permissão, poderá criar postagem que aparecerá na sessão "Blog";
 - Carregamento de imagem na postagem do blog, salvando a imagem na AWS S3 e o link da imagem no banco de dados;
 - Área de administrador (só pode acessar quem tem a ROLE_ADMIN);
-- Admin poderá listar, editar ou excluir todos os usuários do sistema;
+- Admin poderá listar, editar ou excluir qualquer usuário do sistema;
 - Admin poderá editar ou excluir qualquer postagem feita no Blog;
 - Entre outros.
 
-# :camera_flash:Fotos do Projeto
+# Fotos do Projeto
+
 ## Login/Cadastro:closed_lock_with_key: 
 <img src="https://ik.imagekit.io/uuvdtlvst/Captura_de_tela_2023-03-31_121041.png?updatedAt=1680275466610">
 
